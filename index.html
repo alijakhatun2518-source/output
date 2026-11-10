@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="bn" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ইউনিফাইড লিড ইনবক্স (Unified Lead Inbox)</title>
+    <meta name="description" content="Facebook, Messenger এবং WhatsApp-এর সব লিড এক জায়গায় ম্যানেজ, ফিল্টার ও ট্র্যাক করার আধুনিক বাংলা সিআরএম ও ইনবক্স টুল।" />
+    <meta property="og:title" content="ইউনিফাইড লিড ইনবক্স (Unified Lead Inbox)" />
+    <meta property="og:description" content="Facebook, Messenger এবং WhatsApp-এর সব লিড এক জায়গায় ম্যানেজ, ফিল্টার ও ট্র্যাক করার আধুনিক বাংলা সিআরএম ও ইনবক্স টুল।" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+      try {
+        // Clear old legacy theme storage keys as requested
+        localStorage.removeItem('unified_lead_dark_mode');
+        sessionStorage.removeItem('unified_lead_dark_mode');
+        
+        const saved = localStorage.getItem('app-theme') || 'light';
+        let resolvedTheme = saved;
+        if (saved === 'auto') {
+          resolvedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', resolvedTheme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    </script>
+  </head>
+  <body class="h-full bg-[var(--bg-app)] text-[var(--text-primary)] antialiased">
+    <div id="root" class="h-full"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Represents an incoming unified lead in sharedLeads.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier of the lead" },
+        "name": { "type": "string", "description": "Full name of the lead" },
+        "phone": { "type": "string", "description": "Phone number" },
+        "source": { "type": "string", "description": "Primary lead source" },
+        "sources": { "type": "array", "description": "Sources list" },
+        "status": { "type": "string", "description": "Lead status" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Last update timestamp" },
+        "createdBy": { "type": "string", "description": "Email of creator" },
+        "updatedBy": { "type": "string", "description": "Email of last updater" }
+      },
+      "required": ["name", "source"]
+    },
+    "TeamConfig": {
+      "title": "TeamConfig",
+      "description": "Allowed team members list and admin configuration.",
+      "type": "object",
+      "properties": {
+        "adminEmail": { "type": "string", "description": "Primary admin email" },
+        "members": { "type": "array", "description": "List of allowed member emails" }
+      },
+      "required": ["adminEmail", "members"]
+    }
+  },
+  "firestore": {
+    "/sharedLeads/{leadId}": {
+      "schema": "Lead",
+      "description": "Single global shared leads collection accessible by authorized team members."
+    },
+    "/config/team": {
+      "schema": "TeamConfig",
+      "description": "Document holding authorized team members list."
+    }
+  }
+}
